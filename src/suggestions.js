@@ -1,5 +1,5 @@
 let suggestions = [
-    'Adilabad',
+    	'Adilabad',
 			'Anantapur',
 			'Chittoor',
 			'Kakinada',
@@ -14,7 +14,6 @@ let suggestions = [
 			'Nalgonda',
 			'Nizamabad',
 			'Ongole',
-			'Hyderabad',
 			'Srikakulam',
 			'Nellore',
 			'Visakhapatnam',
@@ -242,8 +241,7 @@ let suggestions = [
 			'West Singhbhum',
             'Jamshedpur',
             'Bagalkot',
-			'Bangalore Rural',
-			'Bangalore Urban',
+			'Bangalore',
 			'Belgaum',
 			'Bellary',
 			'Bidar',
@@ -638,3 +636,5 @@ let suggestions = [
 			'Purulia',
 			'Uttar Dinajpur',
 ];
+
+export default suggestions;

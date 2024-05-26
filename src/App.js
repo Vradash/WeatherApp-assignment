@@ -20,25 +20,29 @@ function App() {
     <>
       <Header />
       <div className="container">
-      <Card 
-      title="Weekly Temperature"
-      img="../public/images/thermometer-celsius.svg"
-      array={data?.daily.temperature_2m_mean} 
-      unit={data?.daily_units.temperature_2m_mean}/>
-      <Card 
-      title= "Weekly Humidity"
-      array={data?.daily.relative_humidity_2m_mean}
-      unit={data?.daily_units.relative_humidity_2m_mean}/>
-      <Card 
-      title= "Weekly Rainfall"
-      array={data?.daily.rain_sum}
-      unit={data?.daily_units.rain_sum}/>
-      <Card 
-        title= "Current Temperature"
-      />
-    </div>
+        <Card
+          title="Weekly Temperature"
+          img="../public/images/thermometer-celsius.svg"
+          array={data?.daily.temperature_2m_mean}
+          unit={data?.daily_units.temperature_2m_mean} />
+        <Card
+          title="Weekly Humidity"
+          array={data?.daily.relative_humidity_2m_mean}
+          unit={data?.daily_units.relative_humidity_2m_mean} />
+        <Card
+          title="Weekly Rainfall"
+          array={data?.daily.rain_sum}
+          unit={data?.daily_units.rain_sum} />
+        <Card
+          title="Current Temperature"
+        />
+      </div>
+
+      <div className="container chart">
+        
+      </div>
     </>
-    
+
   );
 }
 

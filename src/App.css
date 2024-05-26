@@ -10,15 +10,14 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    /* gap: 5px; */
+    justify-content: space-around;
+    gap: 5px;
 
     max-width: 1536px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0.5 rem;
     padding-right: 0.5rem;
-    border: red 1px solid; 
 
 }
 
@@ -67,6 +66,8 @@ body{
 }
 
 .sugg-box{
+    position: absolute;
+    width: 100%;
     padding: 0px;
     background: white;
     max-width: 355px; 
@@ -76,11 +77,11 @@ body{
     border-radius: 10px;
 }
 
-.search-box.active .sugg-box{     /* space between .active and .suggbox is necessary*/
+/* .search-box.active .sugg-box{     /* space between .active and .suggbox is necessary
     padding: 10px 8px;
     opacity: 1;
     pointer-events: auto;
-}
+} */
 
 .sugg-box li{
     list-style: none;
@@ -89,7 +90,7 @@ body{
     width: 90%;
     height: 100%;
     cursor: default;
-    display: none; 
+    display: block; 
 }
 
 .search-box.active .sugg-box li{   /* space between .active and .suggbox is necessary*/
@@ -101,7 +102,8 @@ body{
 }
 
 .card{
-    width: 30%;
+    width: 20%;
+    background-color: white;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
@@ -110,6 +112,7 @@ body{
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    /* box-shadow: 0 0 500px rgba(0, 0, 0, 0.5); */
 }
 
 .card div{
