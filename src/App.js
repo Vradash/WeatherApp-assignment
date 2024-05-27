@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Components/card';
 import Header from './Components/header'
+import CanvasJSReact from '@canvasjs/react-charts';
+
 
 function App() {
 
@@ -14,8 +16,28 @@ function App() {
       .catch(err => console.log(err));
   }, []);
 
-  console.log(data);
+  console.log(data);  
 
+
+  var CanvasJS = CanvasJSReact.CanvasJS;
+  var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+  const options = {
+    title: {
+      text: "Basic Column Chart in React"
+    },
+    data: [{
+      type: "column",
+      dataPoints: [
+        { label: "Apple",  y: 10  },
+        { label: "Orange", y: 15  },
+        { label: "Banana", y: 25  },
+        { label: "Mango",  y: 30  },
+        { label: "Grape",  y: 28  }
+      ]
+    }]
+  }
+  
   return (
     <>
       <Header />
@@ -38,9 +60,11 @@ function App() {
         />
       </div>
 
-      <div className="container chart">
-        
-      </div>
+      <div className="container chart" id="tester">
+      <CanvasJSChart options = {options}
+          /* onRef = {ref => this.chart = ref} */
+        />
+      </div> 
     </>
 
   );
