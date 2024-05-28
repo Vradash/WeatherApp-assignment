@@ -1,10 +1,21 @@
-import { useState } from "react"
+import { useState , useEffect} from "react"
+import axios from "axios";
 import suggestions from "../suggestions"
 
-export default function Header(){
+export default function Header(props){
     const [input, setInput] = useState('');
+    
+    
+
+    useEffect(() => {
+      axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${input}&count=1&language=en&format=json`)
+    //   .then(res=>setCity(res.data))
+      .then(res=>props.returnFunc(res.data))
+      .catch(err=>console.log(err));
+    },[input]);
+
+    // console.log(city);
     // console.log(input);
-    // console.log(suggestions);
 
     return(
         <div id="navbar">
