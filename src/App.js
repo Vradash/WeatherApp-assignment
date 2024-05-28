@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Components/card';
 import Header from './Components/header'
-import CanvasJSReact from '@canvasjs/react-charts';
-
-
+import BarChart from './Components/barChart';
 
 function App() {
 
@@ -13,33 +11,14 @@ function App() {
   const [city, setCity] = useState();
 
   useEffect(() => {
-    if (city != undefined)
+    if (city){
       axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${city.latitude}&longitude=1${city.longitude}&start_date=2024-05-16&end_date=2024-05-25&models=MRI_AGCM3_2_S&daily=temperature_2m_mean,relative_humidity_2m_mean,rain_sum`)
         .then(res => setData(res.data))
         .catch(err => console.log(err));
-  }, [city]);
+    }}, [city]);
 
   // console.log(data);  
   const fromChild = data => setCity(data.results[0]);
-
-  var CanvasJS = CanvasJSReact.CanvasJS;
-  var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-
-  const options = {
-    title: {
-      text: "Basic Column Chart in React"
-    },
-    data: [{
-      type: "column",
-      dataPoints: [
-        { label: "Apple", y: 10 },
-        { label: "Orange", y: 15 },
-        { label: "Banana", y: 25 },
-        { label: "Mango", y: 30 },
-        { label: "Grape", y: 28 }
-      ]
-    }]
-  }
 
   return (
     <>
@@ -64,11 +43,7 @@ function App() {
         />
       </div>
 
-      <div className="container chart">
-        <CanvasJSChart options={options}
-        /* onRef = {ref => this.chart = ref} */
-        />
-      </div>
+      <BarChart chartData={data}/>
     </>
 
   );
