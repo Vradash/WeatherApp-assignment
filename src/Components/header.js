@@ -4,15 +4,13 @@ import suggestions from "../suggestions"
 
 export default function Header(props){
     const [input, setInput] = useState('');
-    
-    
 
     useEffect(() => {
+    if(input){
       axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${input}&count=1&language=en&format=json`)
-    //   .then(res=>setCity(res.data))
       .then(res=>props.returnFunc(res.data))
       .catch(err=>console.log(err));
-    },[input]);
+    }},[input]);
 
     // console.log(city);
     // console.log(input);
