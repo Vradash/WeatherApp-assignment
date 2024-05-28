@@ -6,18 +6,21 @@ import Header from './Components/header'
 import CanvasJSReact from '@canvasjs/react-charts';
 
 
+
 function App() {
 
   const [data, setData] = useState();
+  const [city, setCity] = useState();
 
   useEffect(() => {
-    axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=52.52&longitude=13.41&start_date=2024-05-16&end_date=2024-05-25&models=MRI_AGCM3_2_S&daily=temperature_2m_mean,relative_humidity_2m_mean,rain_sum`)
-      .then(res => setData(res.data))
-      .catch(err => console.log(err));
-  }, []);
+    if (city != undefined)
+      axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${city.latitude}&longitude=1${city.longitude}&start_date=2024-05-16&end_date=2024-05-25&models=MRI_AGCM3_2_S&daily=temperature_2m_mean,relative_humidity_2m_mean,rain_sum`)
+        .then(res => setData(res.data))
+        .catch(err => console.log(err));
+  }, [city]);
 
-  console.log(data);  
-
+  // console.log(data);  
+  const fromChild = data => setCity(data.results[0]);
 
   var CanvasJS = CanvasJSReact.CanvasJS;
   var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -29,18 +32,19 @@ function App() {
     data: [{
       type: "column",
       dataPoints: [
-        { label: "Apple",  y: 10  },
-        { label: "Orange", y: 15  },
-        { label: "Banana", y: 25  },
-        { label: "Mango",  y: 30  },
-        { label: "Grape",  y: 28  }
+        { label: "Apple", y: 10 },
+        { label: "Orange", y: 15 },
+        { label: "Banana", y: 25 },
+        { label: "Mango", y: 30 },
+        { label: "Grape", y: 28 }
       ]
     }]
   }
-  
+
   return (
     <>
-      <Header />
+      <Header returnFunc={fromChild} />
+      <h2>{city?.name}</h2>
       <div className="container">
         <Card
           title="Weekly Temperature"
@@ -60,11 +64,11 @@ function App() {
         />
       </div>
 
-      <div className="container chart" id="tester">
-      <CanvasJSChart options = {options}
-          /* onRef = {ref => this.chart = ref} */
+      <div className="container chart">
+        <CanvasJSChart options={options}
+        /* onRef = {ref => this.chart = ref} */
         />
-      </div> 
+      </div>
     </>
 
   );
