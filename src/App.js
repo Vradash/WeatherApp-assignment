@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     if (city){
-      axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${city.latitude}&longitude=1${city.longitude}&start_date=2024-05-16&end_date=2024-05-25&models=MRI_AGCM3_2_S&daily=temperature_2m_mean,relative_humidity_2m_mean,rain_sum`)
+      axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${city.latitude}&longitude=1${city.longitude}&start_date=2024-05-19&end_date=2024-05-25&models=MRI_AGCM3_2_S&daily=temperature_2m_mean,relative_humidity_2m_mean,rain_sum`)
         .then(res => setData(res.data))
         .catch(err => console.log(err));
     }}, [city]);
@@ -23,7 +23,6 @@ function App() {
   return (
     <>
       <Header returnFunc={fromChild} />
-      <h2>{city?.name}</h2>
       <div className="container">
         <Card
           title="Weekly Temperature"
@@ -43,7 +42,7 @@ function App() {
         />
       </div>
 
-      <BarChart chartData={data}/>
+      <BarChart chartData={data?.daily.temperature_2m_mean}/>
     </>
 
   );
