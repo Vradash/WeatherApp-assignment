@@ -6,7 +6,7 @@ export default function Card(props) {
         sum+=element;
     });
     let avg = sum/6.0;
-    console.log(avg);
+    // console.log(avg);
 
 
     return (
