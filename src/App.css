@@ -2,8 +2,11 @@ body{
     box-sizing: border-box;
     margin: 0;
     /* background-image: linear-gradient(#F76C6C 80%, red); */
-    background-color: #F76C6C;
+    /* background-color: #F76C6C; */
     /* #F8E9A1 #F76C6C $A8D0E6 #374785 #24305E */
+    background-image: url('./images/pexels-pixabay-531756.jpg');
+    background-size: cover;
+    overflow-y: hidden;
 }
 
 .container{
@@ -18,8 +21,6 @@ body{
     margin-right: auto;
     padding-left: 0.5 rem;
     padding-right: 0.5rem;
-
-    border: 2px solid black;
 }
 
 #navbar{
@@ -29,30 +30,30 @@ body{
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid black;
-    background-color: #F8E981;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    /* box-shadow: rgb(0, 0, 0); */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0 15px;
     margin-bottom: 20px;
     z-index: 999;
 }
 
 /* Search bar */
-/* #navbar .wrapper{
-    position: absolute; 
-     top: 25%; 
-     left: 35%; 
-     border: 2px solid red;
-} */
+#navbar .wrapper{
+    width: 25%;
+}
 
 #navbar .search-box{
     position: relative;
-    background:  rgb(19, 228, 228);
-    border-radius: 23px;
+    /* border-radius: 23px; */
 }
 
 #navbar .search-txt{
     border: 3px solid;
     border-color: blue;
     height: 40px;
-    width: 350px;
+    width: 94%;
     border-radius: 40px;
     padding-left: 15px;
     font-size: 18px;
@@ -62,7 +63,7 @@ body{
     position: absolute;
     color: rgb(49, 6, 245);
     top: 13px; 
-    right: 15px;
+    right: 3%;
     font-size: 20px;
     cursor: pointer;
 }
@@ -79,12 +80,6 @@ body{
     border-radius: 10px;
 }
 
-/* .search-box.active .sugg-box{     /* space between .active and .suggbox is necessary
-    padding: 10px 8px;
-    opacity: 1;
-    pointer-events: auto;
-} */
-
 .sugg-box li{
     list-style: none;
     padding: 8px 12px;
@@ -95,7 +90,7 @@ body{
     display: block; 
 }
 
-.search-box.active .sugg-box li{   /* space between .active and .suggbox is necessary*/
+.search-box.active .sugg-box li{
     display: block;
 }
 
@@ -112,23 +107,32 @@ body{
 #notePad{
     position: absolute;
     right: 0;
-    top: 0;
+    top: 10.5vh;
     height: 100vh;
     width: 20%;
     padding-left: 1rem;
-    background-color:  #F8E981;
-    /* border: 2px solid green; */
-}
-
-#notePad svg{
-    height: 25px;
-    width: 25px;
-    cursor: pointer;
+    background-color: rgba(54, 184, 240, 0.8);
+    /* background-color:  transparent; */
+    /* backdrop-filter: blur(50px); */
+    /* color: white; */
 }
 
 #notePad h4{
     margin-top: 0;
-    /* text-wrap: wrap; */
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+#notePad .note-list{
+    /* background-color: transparent; */
+    height: 70vh;
+    overflow-y: auto;
+    /* backdrop-filter: blur(50px); */
+
+}
+
+#notePad .note-list ul{
+    padding-left: 1rem;
 }
 
 #notePad .note-box{
@@ -153,9 +157,21 @@ body{
 
 /* Card */
 
+.card-container{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
 .card{
-    width: 20%;
-    background-color: white;
+    width: 30%;
+    height: 30vh;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    /* background-color: white; */
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
@@ -164,7 +180,13 @@ body{
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     /* box-shadow: 0 0 500px rgba(0, 0, 0, 0.5); */
+}
+
+.card:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out;
 }
 
 .card div{
@@ -182,9 +204,9 @@ body{
 }
 
 .chart{
-    width: 75%;
+    width: 40%;
     margin: auto;
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
 }
 
 @media (max-width: 1536px) {
