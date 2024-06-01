@@ -13,8 +13,8 @@ export default function BarChart(props) {
         animationEnabled: true,
         // exportEnabled: true,
         theme: "light1",
-        title: {text: "Weekly Temperature Chart"},
-        dataPointWidth: 80,
+        title: {text: "Weekly Temperature"},
+        // dataPointWidth: 80,
         data: [{
             type: "column",
             // dataPoints: [
@@ -34,13 +34,13 @@ export default function BarChart(props) {
     console.log(dataArr);
 
     return (
-        <div className="container">
+        // <div className="container">
             <div className="chart">
                 <CanvasJSChart options={options}
                 //  onRef = {ref => this.chart = ref} 
                 />
             </div>
 
-        </div>
+        // /* </div> */
     );
 }
