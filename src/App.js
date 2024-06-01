@@ -4,6 +4,7 @@ import axios from 'axios';
 import Card from './Components/card';
 import Header from './Components/header'
 import BarChart from './Components/barChart';
+// import pixabay from './images/pexels-pixabay-531756.jpg'
 
 function App() {
 
@@ -24,25 +25,28 @@ function App() {
     <>
       <Header returnFunc={fromChild} />
       <div className="container">
-        <Card
-          title="Weekly Temperature"
-          img="../public/images/thermometer-celsius.svg"
-          array={data?.daily.temperature_2m_mean}
-          unit={data?.daily_units.temperature_2m_mean} />
-        <Card
-          title="Weekly Humidity"
-          array={data?.daily.relative_humidity_2m_mean}
-          unit={data?.daily_units.relative_humidity_2m_mean} />
-        <Card
-          title="Weekly Rainfall"
-          array={data?.daily.rain_sum}
-          unit={data?.daily_units.rain_sum} />
-        <Card
-          title="Current Temperature"
-        />
+        <div className="card-container">
+          <Card
+            title="Weekly Temperature"
+            img="../public/images/thermometer-celsius.svg"
+            array={data?.daily.temperature_2m_mean}
+            unit={data?.daily_units.temperature_2m_mean} />
+          <Card
+            title="Weekly Humidity"
+            array={data?.daily.relative_humidity_2m_mean}
+            unit={data?.daily_units.relative_humidity_2m_mean} />
+          <Card
+            title="Weekly Rainfall"
+            array={data?.daily.rain_sum}
+            unit={data?.daily_units.rain_sum} />
+          <Card
+            title="Current Temperature"
+          />
+        </div>
+        
+        <BarChart chartData={data?.daily.temperature_2m_mean}/>
       </div>
 
-      <BarChart chartData={data?.daily.temperature_2m_mean}/>
     </>
 
   );
