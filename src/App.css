@@ -57,6 +57,10 @@ body{
     border-radius: 40px;
     padding-left: 15px;
     font-size: 18px;
+    user-select: none;
+}
+#navbar .search-txt:focus{
+    outline: none;
 }
 
 .icon{
@@ -112,9 +116,6 @@ body{
     width: 20%;
     padding-left: 1rem;
     background-color: rgba(54, 184, 240, 0.8);
-    /* background-color:  transparent; */
-    /* backdrop-filter: blur(50px); */
-    /* color: white; */
 }
 
 #notePad h4{
@@ -143,6 +144,9 @@ body{
     height: 30px;
     border: 2px solid orange;
     border-radius: 8px;
+}
+#notePad .note-txt:focus{
+    outline: none;
 }
 
 #notePad .note-btn{
@@ -207,6 +211,7 @@ body{
     width: 40%;
     margin: auto;
     /* border: 2px solid yellow; */
+    border-radius: 20px;
 }
 
 @media (max-width: 1536px) {
