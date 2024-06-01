@@ -7,6 +7,8 @@ import suggestions from "../suggestions"
 export default function Header(props){
     const [input, setInput] = useState('');
     const [clicked,setClicked] = useState(false);
+    const [showPad,setShowPad] = useState(false);
+    // console.log(barIcon)
 
     useEffect(() => {
     if(input){
@@ -33,7 +35,7 @@ export default function Header(props){
                                 if(input === ""){
                                     return 
                                 }else if(val.toLowerCase().startsWith(input.toLowerCase())){
-                                    return val
+                                    return val;
                                 }
                             }).sort().map((val, key)=>{
                                 return <li key={key} onClick={()=>setInput(val)}>{val}</li>;
@@ -42,8 +44,10 @@ export default function Header(props){
                 </div>
             </div>
             {/* <img src={require('../images/vertical-ellipsis.svg')} alt="no image" /> */}
-            <svg className="barIcon" viewBox="0 0 192 512" xmlns="http://www.w3.org/2000/svg"><path d="m96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zm-72-104c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"/></svg>
-            <NotePad />
+            {(showPad)? <NotePad /> : null}
+            {(showPad)? <svg className ="barIcon" onClick={()=>setShowPad(false)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/></svg>        
+            : <svg className="barIcon" onClick={()=>setShowPad(true)} viewBox="0 0 192 512" xmlns="http://www.w3.org/2000/svg"><path d="m96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zm-72-104c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"/></svg>
+            }
         </div>
     )
 }
