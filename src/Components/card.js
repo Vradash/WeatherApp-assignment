@@ -7,12 +7,13 @@ export default function Card(props) {
     });
     let avg = sum/6.0;
     // console.log(avg);
+    
 
 
     return (
         <div className="card">
             <h3>{props?.title}</h3>
-            <img src={require('../images/thermometer.jpg')} alt="placeholder" />
+            <img src={require('../images/'+props.img)} alt="placeholder" />
             <div>
                 {/* <p>{props.array}</p> */}
                 <h3>{avg.toFixed(2)}</h3>
