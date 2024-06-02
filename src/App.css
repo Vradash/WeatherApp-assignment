@@ -9,7 +9,7 @@ body{
     background-image: url('./images/pexels-pixabay-531756.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
 }
 
 .container{
