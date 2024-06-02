@@ -1,12 +1,15 @@
 body{
+    font-family: 'Crimson Pro', serif;
     box-sizing: border-box;
+    height: 100vh;
     margin: 0;
     /* background-image: linear-gradient(#F76C6C 80%, red); */
     /* background-color: #F76C6C; */
     /* #F8E9A1 #F76C6C $A8D0E6 #374785 #24305E */
     background-image: url('./images/pexels-pixabay-531756.jpg');
     background-size: cover;
-    overflow-y: hidden;
+    background-repeat: no-repeat;
+    /* overflow-y: hidden; */
 }
 
 .container{
@@ -15,7 +18,7 @@ body{
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 5px;
-
+    /* border: 2px solid red; */
     max-width: 1536px;
     margin-left: auto;
     margin-right: auto;
@@ -26,6 +29,7 @@ body{
 #navbar{
     position: sticky;
     top: 0;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,6 +43,13 @@ body{
     z-index: 999;
 }
 
+#navbar h3{
+    color: white;
+    font-family: 'Tangerine', cursive;
+    font-size: 2.3rem;
+    font-weight: 700;
+}
+
 /* Search bar */
 #navbar .wrapper{
     width: 25%;
@@ -47,6 +58,8 @@ body{
 #navbar .search-box{
     position: relative;
     /* border-radius: 23px; */
+    min-width: 150px;
+    /* border: 2px solid red; */
 }
 
 #navbar .search-txt{
@@ -59,6 +72,7 @@ body{
     font-size: 18px;
     user-select: none;
 }
+
 #navbar .search-txt:focus{
     outline: none;
 }
@@ -66,8 +80,8 @@ body{
 .icon{
     position: absolute;
     color: rgb(49, 6, 245);
-    top: 13px; 
-    right: 3%;
+    top: 25%; 
+    right: 5%;
     font-size: 20px;
     cursor: pointer;
 }
@@ -110,18 +124,20 @@ body{
 /* NotePad */
 #notePad{
     position: absolute;
+    font-size: 12px;
     right: 0;
-    top: 10.5vh;
+    top: 10vh;
     height: 100vh;
     width: 20%;
     padding-left: 1rem;
+    padding-right: 1rem;
     background-color: rgba(54, 184, 240, 0.8);
 }
 
 #notePad h4{
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 12px;
+
 }
 
 #notePad .note-list{
@@ -134,6 +150,7 @@ body{
 
 #notePad .note-list ul{
     padding-left: 1rem;
+    font-size: 1rem;
 }
 
 #notePad .note-box{
@@ -142,6 +159,7 @@ body{
 
 #notePad .note-txt{
     height: 30px;
+    width: 70%;
     border: 2px solid orange;
     border-radius: 8px;
 }
@@ -151,6 +169,8 @@ body{
 
 #notePad .note-btn{
     height: 30px;
+    width: 20%;
+    min-width: 35px;
     border-radius: 8px;
     margin-left: 3px;
     background-color: rgb(255, 106, 0);
@@ -209,9 +229,9 @@ body{
 
 .chart{
     width: 40%;
+    min-width: 400px;
     margin: auto;
-    /* border: 2px solid yellow; */
-    border-radius: 20px;
+    border: 2px solid yellow;
 }
 
 @media (max-width: 1536px) {
@@ -223,30 +243,86 @@ body{
 @media (max-width: 1280px) {
     .container{
         max-width: 1024px;
-    }   
+    }  
+    #notePad .note-btn{
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 1024px) {
     .container{
         max-width: 768px;
-    }   
+    } 
+    #notePad .note-btn{
+        font-size: 10px;
+        height: 25px;
+    }
+    .card-container{
+        width: 100%;
+    }
+    .card{
+        width: 15%;
+        height: 20vh;
+    }
+    .chart{
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
     .container{
         max-width: 540px;
+    }
+    #navbar .search-txt{
+        /* width: 90%; */
+        font-size: 15px;
+        height: 30px;
+    }  
+    #navbar .sugg-box li{
+        font-size: 15px;
     }   
+    .icon{
+        right: 0;
+    }
+    #notePad h4{
+        font-size: 10px;
+    }
+    #notePad .note-txt{
+        width: 100%;
+        height: 20px;
+        font-size: 12px;
+    }
+    #notePad .note-btn{
+        width: 100%;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 640px) {
     .container{
         max-width: 475px;
-    }   
+    } 
+    .card{
+        height: 125px;
+        font-size: 13px;
+    }  
+    #notePad h4{
+        font-size: 8px;
+    }
+    #notePad .note-list ul{
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 475px) {
     .container{
         max-width: 100%;
     }   
+    .card{
+        width: 13%;
+        font-size: 10px;
+        height: 100px;
+
+    }
 }
 
