@@ -4,7 +4,6 @@ import axios from 'axios';
 import Card from './Components/card';
 import Header from './Components/header'
 import BarChart from './Components/barChart';
-// import pixabay from './images/pexels-pixabay-531756.jpg'
 
 function App() {
 
