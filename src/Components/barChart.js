@@ -2,8 +2,15 @@ import CanvasJSReact from '@canvasjs/react-charts';
 
 export default function BarChart(props) {
 
+    const date=props.starting_day;
+    const month=props.starting_month;
+
     const dataArr = props.chartData?.map((element, index) => {
-        return { label: index, y: element }
+        let val=date+index;
+        if(date+index>30){
+            val=date+index-30;
+        }
+        return { label: String(val)+'-'+String(month), y: element }
     });
 
     // var CanvasJS = CanvasJSReact.CanvasJS;
@@ -26,7 +33,6 @@ export default function BarChart(props) {
             <div className="chart">
                 <CanvasJSChart options={options} />
             </div>
-
         // /* </div> */
     );
 }
