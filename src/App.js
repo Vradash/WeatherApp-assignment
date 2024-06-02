@@ -10,14 +10,31 @@ function App() {
   const [data, setData] = useState();
   const [city, setCity] = useState();
 
+  var today = new Date();
+  var d = String(today.getDate()).padStart(2, '0');
+  var m = String(today.getMonth() + 1).padStart(2, '0'); 
+  var y = today.getFullYear();
+  // console.log(d,m,y);
+
+  var end_date=y + '-' + m + '-' + d;
+
+  var ed,em;
+  if(d-7<=0){
+    ed=String(30+(d-7)).padStart(2,'0');
+    em=String(m-1).padStart(2,'0');
+  }
+  var start_date=y + '-' + em + '-' + ed;
+  console.log(start_date);
+  console.log(end_date);
+
   useEffect(() => {
     if (city){
-      axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${city.latitude}&longitude=1${city.longitude}&start_date=2024-05-19&end_date=2024-05-25&models=MRI_AGCM3_2_S&daily=temperature_2m_mean,relative_humidity_2m_mean,rain_sum`)
+      axios.get(`https://climate-api.open-meteo.com/v1/climate?latitude=${city.latitude}&longitude=1${city.longitude}&start_date=${start_date}&end_date=${end_date}&models=MRI_AGCM3_2_S&daily=temperature_2m_mean,relative_humidity_2m_mean,rain_sum`)
         .then(res => setData(res.data))
         .catch(err => console.log(err));
     }}, [city]);
 
-  // console.log(data);  
+  console.log(data);  
   const fromChild = data => setCity(data.results[0]);
 
   return (
@@ -46,7 +63,7 @@ function App() {
           />
         </div>
         
-        <BarChart chartData={data?.daily.temperature_2m_mean}/>
+        <BarChart chartData={data?.daily.temperature_2m_mean} starting_day={Number(ed)} starting_month={Number(em)}/>
       </div>
 
     </>
