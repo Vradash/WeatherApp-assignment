@@ -14,7 +14,6 @@ function App() {
   var d = String(today.getDate()).padStart(2, '0');
   var m = String(today.getMonth() + 1).padStart(2, '0'); 
   var y = today.getFullYear();
-  // console.log(d,m,y);
 
   var end_date=y + '-' + m + '-' + d;
 
